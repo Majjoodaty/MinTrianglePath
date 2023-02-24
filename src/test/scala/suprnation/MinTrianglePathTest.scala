@@ -4,6 +4,8 @@ import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.should.Matchers
 import suprnation.MinTrianglePath._
 
+import scala.util.Random
+
 class MinTrianglePathTest extends AnyFunSuite with Matchers {
 
   private val triangle: Triangle = Vector(
@@ -37,6 +39,18 @@ class MinTrianglePathTest extends AnyFunSuite with Matchers {
     val expectedResult = "Minimal path is: 7 + 6 + 3 + 2 = 18"
 
     path.get.prettyText().shouldBe(expectedResult)
+  }
+
+  test("test 500 rows triangle") {
+
+    val localTriangle = (for {
+      rows <- 1 to 500
+    } yield Vector.fill(rows)(Random.nextInt(10))).toVector
+
+    val res = findMinTrianglePath(localTriangle)
+
+    res.nonEmpty.shouldBe(true)
+    res.get.nodes.length.shouldBe(500)
   }
 
 }
