@@ -1,4 +1,4 @@
-# Minimum triangle paths
+# Minimum triangle path
 This App process a given triangular structure of numbers, and find the minimum path sum from top to bottom.
 
 Problem example:
