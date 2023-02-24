@@ -7,7 +7,7 @@ object MinTrianglePathApp extends App {
 
   import MinTrianglePath._
 
-  private val fileName = args(0)
+  private val fileName = args.headOption.getOrElse("")
 
   private val lines = Using(Source.fromFile(fileName)) { source =>
     source.getLines().toList
